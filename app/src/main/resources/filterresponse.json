@@ -1,0 +1,18 @@
+[
+  {
+    "Rated Gallons": 5,
+    "Type": "HOB",
+    "Quantity": 1,
+    "Product Name": "Tetra Whisper IQ 10",
+    "Image Link": "https://m.media-amazon.com/test1.jpg",
+    "Associates Link": "https://amzn.to/test1"
+  },
+  {
+    "Rated Gallons": 50,
+    "Type": "Internal",
+    "Quantity": 2,
+    "Product Name": "Aqueon Quietflow 10",
+    "Image Link": "https://m.media-amazon.com/test2.jpg",
+    "Associates Link": "https://amzn.to/test2"
+  }
+]
