@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Aquarium Calculator</string>
+    <string name="settings">Settings</string>
+    <string name="stocking_title">Stocking Calculations</string>
+    <string name="unit_title">Unit Converters</string>
+    <string name="equipment_title">Recommended Equipment</string>
 </resources>

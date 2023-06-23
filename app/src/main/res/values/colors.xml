@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary_text">#FBFDFE</color>
+    <color name="secondary_text">#6B6C83</color>
+    <color name="faded_text">#76768D</color>
+
+    <color name="layout_background">#27283A</color>
+    <color name="primary_card">#5649D2</color>
+    <color name="secondary_card">#3A3F67</color>
+    <color name="purple_widget">#D57BFE</color>
+    <color name="teal_widget">#69C0FF</color>
+
 </resources>
