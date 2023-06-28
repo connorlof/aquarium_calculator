@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
+import com.loftydev.aquariumcalculator.data.util.Resource
 import com.loftydev.aquariumcalculator.databinding.FragmentEquipmentBinding
+import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModel
 
 class EquipmentFragment : Fragment() {
 
+    lateinit var viewModel: EquipmentViewModel
     private var _binding: FragmentEquipmentBinding? = null
 
     private val binding get() = _binding!!
@@ -26,13 +29,39 @@ class EquipmentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
+        viewModel = (activity as MenuActivity).viewModel
+        viewFiltersList()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun viewFiltersList() {
+        viewModel.getFilters()
+        viewModel.filters.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is Resource.Success -> {
+                    // TODO: Add progress bar to view
+                    //hideProgressBar()
+                    response.data?.let {
+                        binding.tvEquipResult.text = it.toString()
+                    }
+                }
+
+                is Resource.Error -> {
+                    //hideProgressBar()
+                    response.message?.let {
+                        Toast.makeText(activity, "An error occurred: $it", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                is Resource.Loading -> {
+                    binding.tvEquipResult.text = "Loading"
+                    //showProgressBar()
+                }
+            }
+        }
     }
 }

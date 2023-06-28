@@ -5,12 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.loftydev.aquariumcalculator.domain.usecase.GetFiltersUseCase
 
-class MenuViewModelFactory(
+class EquipmentViewModelFactory(
     private val app: Application,
     private val getFiltersUseCase: GetFiltersUseCase,
 ): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return MenuViewModel(
+        return EquipmentViewModel(
             app,
             getFiltersUseCase
         ) as T

@@ -10,7 +10,7 @@ import com.loftydev.aquariumcalculator.domain.usecase.GetFiltersUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MenuViewModel(
+class EquipmentViewModel(
     private val app: Application,
     private val getFiltersUseCase: GetFiltersUseCase,
 ) : AndroidViewModel(app) {
