@@ -21,11 +21,14 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
 
         binding.filterEquipButton.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_MenuFragment_to_EquipmentFragment)
+        }
+
+        binding.tempConvButton.setOnClickListener {
+            findNavController().navigate(R.id.action_MenuFragment_to_unitConverterFragment)
         }
 
         return binding.root
-
     }
 
     override fun onDestroyView() {

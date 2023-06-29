@@ -21,15 +21,13 @@ class EquipmentFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentEquipmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel = (activity as MenuActivity).viewModel
+        viewModel = (activity as MenuActivity).equipmentViewModel
         viewFiltersList()
     }
 

@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class EquipmentViewModel(
-    private val app: Application,
+    app: Application,
     private val getFiltersUseCase: GetFiltersUseCase,
 ) : AndroidViewModel(app) {
 

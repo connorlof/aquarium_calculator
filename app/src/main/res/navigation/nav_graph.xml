@@ -12,8 +12,11 @@
         tools:layout="@layout/fragment_menu">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_MenuFragment_to_EquipmentFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_MenuFragment_to_unitConverterFragment"
+            app:destination="@id/unitConverterFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -25,4 +28,8 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/unitConverterFragment"
+        android:name="com.loftydev.aquariumcalculator.UnitConverterFragment"
+        android:label="UnitConverterFragment" />
 </navigation>

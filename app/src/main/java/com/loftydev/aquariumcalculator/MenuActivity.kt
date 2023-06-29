@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.loftydev.aquariumcalculator.databinding.ActivityMenuBinding
 import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModelFactory
+import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitConverterViewModel
+import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitConverterViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -13,8 +15,12 @@ import javax.inject.Inject
 class MenuActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var factory: EquipmentViewModelFactory
-    lateinit var viewModel: EquipmentViewModel
+    lateinit var unitConverterFactory: UnitConverterViewModelFactory
+    lateinit var unitConverterViewModel: UnitConverterViewModel
+
+    @Inject
+    lateinit var equipmentFactory: EquipmentViewModelFactory
+    lateinit var equipmentViewModel: EquipmentViewModel
 
     private lateinit var binding: ActivityMenuBinding
 
@@ -23,6 +29,7 @@ class MenuActivity : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this, factory)[EquipmentViewModel::class.java]
+        equipmentViewModel = ViewModelProvider(this, equipmentFactory)[EquipmentViewModel::class.java]
+        unitConverterViewModel = ViewModelProvider(this, unitConverterFactory)[UnitConverterViewModel::class.java]
     }
 }
