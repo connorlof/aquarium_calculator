@@ -1,4 +1,4 @@
-package com.loftydev.aquariumcalculator.domain.usecase
+package com.loftydev.aquariumcalculator.data.model
 
 enum class ConversionType(val header: String) {
 

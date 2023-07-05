@@ -1,6 +1,6 @@
-package com.loftydev.aquariumcalculator.domain.usecase
+package com.loftydev.aquariumcalculator.data.model
 
-import  com.loftydev.aquariumcalculator.domain.usecase.ConversionType.*
+import  com.loftydev.aquariumcalculator.data.model.ConversionType.*
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 

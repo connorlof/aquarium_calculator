@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.loftydev.aquariumcalculator.domain.usecase.ConversionType
+import com.loftydev.aquariumcalculator.data.model.ConversionType
 import com.loftydev.aquariumcalculator.domain.usecase.GetConversionUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.SwapConversionUseCase
 import kotlinx.coroutines.Dispatchers

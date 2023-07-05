@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.loftydev.aquariumcalculator.databinding.ActivityMenuBinding
 import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModelFactory
+import com.loftydev.aquariumcalculator.presentation.viewmodel.MenuViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitConverterViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitConverterViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,6 +22,8 @@ class MenuActivity : AppCompatActivity() {
     @Inject
     lateinit var equipmentFactory: EquipmentViewModelFactory
     lateinit var equipmentViewModel: EquipmentViewModel
+
+    val menuViewModel: MenuViewModel = MenuViewModel()
 
     private lateinit var binding: ActivityMenuBinding
 
