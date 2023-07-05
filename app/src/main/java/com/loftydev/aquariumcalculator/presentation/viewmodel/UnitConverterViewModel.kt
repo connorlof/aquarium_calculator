@@ -19,6 +19,10 @@ class UnitConverterViewModel(
     val output: MutableLiveData<Double> = MutableLiveData()
     val conversionType: MutableLiveData<ConversionType> = MutableLiveData()
 
+    fun setConversionType(type: ConversionType) {
+        conversionType.postValue(type)
+    }
+
     fun convert(
         input: Double,
         type: ConversionType

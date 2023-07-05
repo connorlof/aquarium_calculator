@@ -34,7 +34,7 @@ class UnitConverterFragment : Fragment() {
 
         observe()
         setListeners()
-        convert()
+        setInitialConversionType()
     }
 
     private fun observe() {
@@ -54,9 +54,7 @@ class UnitConverterFragment : Fragment() {
         }
     }
 
-    private fun convert() {
-        val input = binding.etConvertInput.text.toString().toDoubleOrNull() ?: 0.0
-
+    private fun setInitialConversionType() {
         val conversionType = when (menuViewModel.lastSelectedItem.value) {
             UNIT_CONVERT_TEMPERATURE -> ConversionType.FAHRENHEIT_TO_CELSIUS
             UNIT_CONVERT_VOLUME -> ConversionType.GALLONS_TO_LITERS
@@ -65,6 +63,12 @@ class UnitConverterFragment : Fragment() {
             else -> ConversionType.FAHRENHEIT_TO_CELSIUS
         }
 
+        viewModel.setConversionType(conversionType)
+    }
+
+    private fun convert() {
+        val input = binding.etConvertInput.text.toString().toDoubleOrNull() ?: 0.0
+        val conversionType = viewModel.conversionType.value ?: ConversionType.FAHRENHEIT_TO_CELSIUS
         viewModel.convert(input, conversionType)
     }
 
