@@ -2,8 +2,12 @@ package com.loftydev.aquariumcalculator.presentation.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.loftydev.aquariumcalculator.domain.usecase.GetInchPerGallonUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetSurfaceAreaStockingUseCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class StockingViewModel(
     app: Application,
@@ -11,10 +15,16 @@ class StockingViewModel(
     private val getSurfaceAreaStockingUseCase: GetSurfaceAreaStockingUseCase,
 ) : AndroidViewModel(app) {
 
+    val stockingPercent: MutableLiveData<Double> = MutableLiveData()
+
     fun calculateInchPerGallon(inchesOfFish: Double, tankGallons: Double) =
-        getInchPerGallonUseCase.execute(inchesOfFish, tankGallons)
+        viewModelScope.launch(Dispatchers.IO) {
+            stockingPercent.postValue(getInchPerGallonUseCase.execute(inchesOfFish, tankGallons))
+        }
 
     fun calculateSurfaceArea(inchesOfFish: Double, surfaceAreaSqInches: Double) =
-        getSurfaceAreaStockingUseCase.execute(inchesOfFish, surfaceAreaSqInches)
+        viewModelScope.launch(Dispatchers.IO) {
+            stockingPercent.postValue(getSurfaceAreaStockingUseCase.execute(inchesOfFish, surfaceAreaSqInches))
+        }
 
 }

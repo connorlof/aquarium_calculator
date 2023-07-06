@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/et_stocking_gallons"
+            android:id="@+id/et_tank_dimension"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:padding="4dp"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_stocking_header" />
 
         <EditText
-            android:id="@+id/et_stocking_inches"
+            android:id="@+id/et_fish_inches"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:padding="4dp"
@@ -47,7 +47,7 @@
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_stocking_gallons" />
+            app:layout_constraintTop_toBottomOf="@id/et_tank_dimension" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -57,14 +57,14 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <Button
-        android:id="@+id/btn_convert_calculate"
+        android:id="@+id/btn_stocking_calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:text="Calculate"
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/et_stocking_inches" />
+        app:layout_constraintTop_toBottomOf="@id/et_fish_inches" />
 
     <TextView
         android:id="@+id/tv_stocking_output"
@@ -75,7 +75,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_convert_calculate" />
+        app:layout_constraintTop_toBottomOf="@id/btn_stocking_calculate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

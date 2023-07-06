@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.loftydev.aquariumcalculator.databinding.FragmentStockingBinding
 import com.loftydev.aquariumcalculator.presentation.viewmodel.MenuViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.StockingViewModel
+import kotlin.math.roundToInt
 
 class StockingFragment : Fragment() {
 
@@ -30,6 +31,40 @@ class StockingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MenuActivity).stockingViewModel
         menuViewModel = (activity as MenuActivity).menuViewModel
+
+        setHeader()
+        observe()
+        setListeners()
+    }
+
+    private fun setHeader() {
+        if (menuViewModel.lastSelectedItem.value == STOCKING_INCH_GALLON) {
+            binding.tvStockingHeader.text = "Inch Per Gallon"
+        } else {
+            binding.tvStockingHeader.text = "Surface Area"
+        }
+    }
+
+    private fun observe() {
+        viewModel.stockingPercent.observe(viewLifecycleOwner) { output ->
+            binding.tvStockingOutput.text = "Stocking Level: ${(output * 100).roundToInt()}%"
+        }
+    }
+
+    private fun setListeners() {
+        binding.btnStockingCalculate.setOnClickListener { calculate() }
+    }
+
+    private fun calculate() {
+        val inchesOfFish = binding.etFishInches.text.toString().toDoubleOrNull() ?: 0.0
+
+        if (menuViewModel.lastSelectedItem.value == STOCKING_INCH_GALLON) {
+            val gallons = binding.etTankDimension.text.toString().toDoubleOrNull() ?: 0.0
+            viewModel.calculateInchPerGallon(inchesOfFish, gallons)
+        } else {
+            val sqInches = binding.etTankDimension.text.toString().toDoubleOrNull() ?: 0.0
+            viewModel.calculateSurfaceArea(inchesOfFish, sqInches)
+        }
     }
 
     companion object {
