@@ -26,8 +26,14 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         viewModel = (activity as MenuActivity).menuViewModel
 
-        binding.filterEquipButton.setOnClickListener {
-            findNavController().navigate(R.id.action_MenuFragment_to_EquipmentFragment)
+        binding.inchStockingButton.setOnClickListener {
+            viewModel.select(StockingFragment.STOCKING_INCH_GALLON)
+            findNavController().navigate(R.id.action_MenuFragment_to_stockingFragment)
+        }
+
+        binding.saStockingButton.setOnClickListener {
+            viewModel.select(StockingFragment.STOCKING_SURFACE_AREA)
+            findNavController().navigate(R.id.action_MenuFragment_to_stockingFragment)
         }
 
         binding.tempConvButton.setOnClickListener {
@@ -48,6 +54,10 @@ class MenuFragment : Fragment() {
         binding.hardnessConvButton.setOnClickListener {
             viewModel.select(UnitConverterFragment.UNIT_CONVERT_HARDNESS)
             findNavController().navigate(R.id.action_MenuFragment_to_unitConverterFragment)
+        }
+
+        binding.filterEquipButton.setOnClickListener {
+            findNavController().navigate(R.id.action_MenuFragment_to_EquipmentFragment)
         }
 
         return binding.root

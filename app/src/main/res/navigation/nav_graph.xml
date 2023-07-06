@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_MenuFragment_to_unitConverterFragment"
             app:destination="@id/unitConverterFragment" />
+        <action
+            android:id="@+id/action_MenuFragment_to_stockingFragment"
+            app:destination="@id/stockingFragment" />
     </fragment>
     <fragment
         android:id="@+id/EquipmentFragment"
@@ -28,4 +31,9 @@
         android:name="com.loftydev.aquariumcalculator.UnitConverterFragment"
         android:label="UnitConverterFragment" >
     </fragment>
+    <fragment
+        android:id="@+id/stockingFragment"
+        android:name="com.loftydev.aquariumcalculator.StockingFragment"
+        android:label="fragment_stocking"
+        tools:layout="@layout/fragment_stocking" />
 </navigation>

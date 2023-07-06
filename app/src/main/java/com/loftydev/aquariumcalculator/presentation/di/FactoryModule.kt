@@ -5,6 +5,7 @@ import com.loftydev.aquariumcalculator.domain.usecase.GetConversionUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetFiltersUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.SwapConversionUseCase
 import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModelFactory
+import com.loftydev.aquariumcalculator.presentation.viewmodel.StockingViewModelFactory
 import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitConverterViewModelFactory
 import dagger.Module
 import dagger.Provides
@@ -24,6 +25,14 @@ class FactoryModule {
         swapConversionUseCase: SwapConversionUseCase
     ): UnitConverterViewModelFactory {
         return UnitConverterViewModelFactory(app, getConversionUseCase, swapConversionUseCase)
+    }
+
+    @Singleton
+    @Provides
+    fun provideStockingViewModelFactory(
+        app: Application,
+    ): StockingViewModelFactory {
+        return StockingViewModelFactory(app)
     }
 
     @Singleton

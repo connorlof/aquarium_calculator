@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background"
+    tools:context=".StockingFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_stocking_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inch Per Gallon"
+        android:textColor="@color/primary_text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_stocking_gallons"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:padding="4dp"
+            android:layout_margin="4dp"
+            android:background="@color/secondary_card"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_stocking_header" />
+
+        <EditText
+            android:id="@+id/et_stocking_inches"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:padding="4dp"
+            android:layout_margin="4dp"
+            android:background="@color/secondary_card"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_stocking_gallons" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <Button
+        android:id="@+id/btn_convert_calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="Calculate"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/et_stocking_inches" />
+
+    <TextView
+        android:id="@+id/tv_stocking_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stocking Level: 0%"
+        android:textColor="@color/primary_text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_convert_calculate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
