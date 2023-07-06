@@ -3,6 +3,8 @@ package com.loftydev.aquariumcalculator.presentation.di
 import android.app.Application
 import com.loftydev.aquariumcalculator.domain.usecase.GetConversionUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetFiltersUseCase
+import com.loftydev.aquariumcalculator.domain.usecase.GetInchPerGallonUseCase
+import com.loftydev.aquariumcalculator.domain.usecase.GetSurfaceAreaStockingUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.SwapConversionUseCase
 import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModelFactory
 import com.loftydev.aquariumcalculator.presentation.viewmodel.StockingViewModelFactory
@@ -31,8 +33,10 @@ class FactoryModule {
     @Provides
     fun provideStockingViewModelFactory(
         app: Application,
+        getInchPerGallonUseCase: GetInchPerGallonUseCase,
+        getSurfaceAreaStockingUseCase: GetSurfaceAreaStockingUseCase
     ): StockingViewModelFactory {
-        return StockingViewModelFactory(app)
+        return StockingViewModelFactory(app, getInchPerGallonUseCase, getSurfaceAreaStockingUseCase)
     }
 
     @Singleton
