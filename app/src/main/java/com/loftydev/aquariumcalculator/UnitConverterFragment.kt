@@ -5,10 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import com.loftydev.aquariumcalculator.databinding.FragmentUnitConverterBinding
 import com.loftydev.aquariumcalculator.data.model.ConversionType
 import com.loftydev.aquariumcalculator.presentation.viewmodel.MenuViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitConverterViewModel
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class UnitConverterFragment : Fragment() {
 
@@ -51,6 +55,13 @@ class UnitConverterFragment : Fragment() {
         binding.btnConvertCalculate.setOnClickListener { convert() }
         binding.btnConvertSwap.setOnClickListener {
             viewModel.swapUnits()
+        }
+
+        binding.etConvertInput.doOnTextChanged { _, _, _, _ ->
+            MainScope().launch {
+                delay(1000)
+                convert()
+            }
         }
     }
 
