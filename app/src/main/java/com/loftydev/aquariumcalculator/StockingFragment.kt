@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import com.loftydev.aquariumcalculator.databinding.FragmentStockingBinding
 import com.loftydev.aquariumcalculator.presentation.viewmodel.MenuViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.StockingViewModel
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 class StockingFragment : Fragment() {
@@ -32,7 +36,9 @@ class StockingFragment : Fragment() {
         viewModel = (activity as MenuActivity).stockingViewModel
         menuViewModel = (activity as MenuActivity).menuViewModel
 
+        viewModel.reset()
         setHeader()
+        setHint()
         observe()
         setListeners()
     }
@@ -45,6 +51,14 @@ class StockingFragment : Fragment() {
         }
     }
 
+    private fun setHint() {
+        if (menuViewModel.lastSelectedItem.value == STOCKING_INCH_GALLON) {
+            binding.tvTankDimensionHint.text = "Tank Gallons"
+        } else {
+            binding.tvTankDimensionHint.text = "Tank Sq Inches (Length x Depth)"
+        }
+    }
+
     private fun observe() {
         viewModel.stockingPercent.observe(viewLifecycleOwner) { output ->
             binding.tvStockingOutput.text = "Stocking Level: ${(output * 100).roundToInt()}%"
@@ -53,6 +67,20 @@ class StockingFragment : Fragment() {
 
     private fun setListeners() {
         binding.btnStockingCalculate.setOnClickListener { calculate() }
+
+        binding.etFishInches.doOnTextChanged { _, _, _, _ ->
+            MainScope().launch {
+                delay(1000)
+                calculate()
+            }
+        }
+
+        binding.etTankDimension.doOnTextChanged { _, _, _, _ ->
+            MainScope().launch {
+                delay(1000)
+                calculate()
+            }
+        }
     }
 
     private fun calculate() {

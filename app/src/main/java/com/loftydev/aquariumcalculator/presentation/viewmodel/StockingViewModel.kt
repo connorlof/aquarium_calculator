@@ -17,6 +17,10 @@ class StockingViewModel(
 
     val stockingPercent: MutableLiveData<Double> = MutableLiveData()
 
+    fun reset() = viewModelScope.launch(Dispatchers.IO) {
+        stockingPercent.postValue(0.0)
+    }
+
     fun calculateInchPerGallon(inchesOfFish: Double, tankGallons: Double) =
         viewModelScope.launch(Dispatchers.IO) {
             stockingPercent.postValue(getInchPerGallonUseCase.execute(inchesOfFish, tankGallons))
