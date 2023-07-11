@@ -7,14 +7,11 @@
     android:background="@color/layout_background"
     tools:context=".EquipmentFragment">
 
-    <EditText
-        android:id="@+id/et_equip_gallons"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Gallons" />
+    <SearchView
+        android:id="@+id/sv_tank_gallons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/secondary_card" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_equipment"

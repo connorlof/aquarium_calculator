@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loftydev.aquariumcalculator.data.util.Resource
@@ -42,6 +43,7 @@ class EquipmentFragment : Fragment() {
 
         initRecyclerView()
         viewFiltersList()
+        setSearchView()
     }
 
     override fun onDestroyView() {
@@ -64,7 +66,7 @@ class EquipmentFragment : Fragment() {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let {
-                        equipmentAdapter.differ.submitList(it)
+                        equipmentAdapter.addData(it)
                     }
                 }
                 is Resource.Error -> {
@@ -79,6 +81,20 @@ class EquipmentFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun setSearchView() {
+        binding.svTankGallons.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                equipmentAdapter.filter.filter(p0)
+                return false
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                equipmentAdapter.filter.filter(p0)
+                return false
+            }
+        })
     }
 
     private fun showProgressBar() {
