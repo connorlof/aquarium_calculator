@@ -11,7 +11,7 @@ data class FilterResponseItem(
     @SerializedName("Product Name")
     val productName: String,
     @SerializedName("Quantity")
-    val quantity: Int,
+    val quantity: String,
     @SerializedName("Rated Gallons")
     val ratedGallons: Int,
     @SerializedName("Type")

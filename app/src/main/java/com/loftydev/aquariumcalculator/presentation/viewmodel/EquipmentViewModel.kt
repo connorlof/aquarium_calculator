@@ -22,7 +22,6 @@ class EquipmentViewModel(
         try{
             val apiResult = getFiltersUseCase.execute()
             filters.postValue(apiResult)
-            // TODO: Save filters locally upon first API call
         } catch (e:Exception){
             filters.postValue(Resource.Error(e.message.toString()))
         }

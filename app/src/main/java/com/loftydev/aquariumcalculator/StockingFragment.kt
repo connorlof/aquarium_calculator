@@ -61,9 +61,16 @@ class StockingFragment : Fragment() {
 
     private fun observe() {
         viewModel.stockingPercent.observe(viewLifecycleOwner) { output ->
-            binding.tvStockingOutput.text = "Stocking Level: ${(output * 100).roundToInt()}%"
+            binding.tvStockingOutput.text = formatStockingLevel(output)
         }
     }
+
+    private fun formatStockingLevel(stockingPercent: Double): String =
+        try {
+            "Stocking Level: ${(stockingPercent * 100).roundToInt()}%"
+        } catch (e: Exception) {
+            "Stocking Level: 0%"
+        }
 
     private fun setListeners() {
         binding.btnStockingCalculate.setOnClickListener { calculate() }
