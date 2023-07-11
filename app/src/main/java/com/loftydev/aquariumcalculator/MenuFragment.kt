@@ -57,6 +57,12 @@ class MenuFragment : Fragment() {
         }
 
         binding.filterEquipButton.setOnClickListener {
+            viewModel.select(EquipmentFragment.EQUIPMENT_FILTER)
+            findNavController().navigate(R.id.action_MenuFragment_to_EquipmentFragment)
+        }
+
+        binding.heaterEquipButton.setOnClickListener {
+            viewModel.select(EquipmentFragment.EQUIPMENT_HEATER)
             findNavController().navigate(R.id.action_MenuFragment_to_EquipmentFragment)
         }
 

@@ -9,14 +9,14 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.loftydev.aquariumcalculator.data.model.FilterResponseItem
+import com.loftydev.aquariumcalculator.data.model.EquipmentResponseItem
 import com.loftydev.aquariumcalculator.databinding.EquipmentListItemBinding
 
 class EquipmentAdapter(private val context: Context) :
     RecyclerView.Adapter<EquipmentAdapter.EquipmentViewHolder>(), Filterable {
 
-    var equipmentList: ArrayList<FilterResponseItem> = ArrayList()
-    var equipmentListFiltered: ArrayList<FilterResponseItem> = ArrayList()
+    var equipmentList: ArrayList<EquipmentResponseItem> = ArrayList()
+    var equipmentListFiltered: ArrayList<EquipmentResponseItem> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EquipmentViewHolder {
         val binding = EquipmentListItemBinding
@@ -24,8 +24,8 @@ class EquipmentAdapter(private val context: Context) :
         return EquipmentViewHolder(binding)
     }
 
-    fun addData(list: List<FilterResponseItem>) {
-        equipmentList = list as ArrayList<FilterResponseItem>
+    fun addData(list: List<EquipmentResponseItem>) {
+        equipmentList = list as ArrayList<EquipmentResponseItem>
         equipmentListFiltered = equipmentList
         notifyDataSetChanged()
     }
@@ -41,7 +41,7 @@ class EquipmentAdapter(private val context: Context) :
     inner class EquipmentViewHolder(
         private val binding: EquipmentListItemBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(equipment: FilterResponseItem) {
+        fun bind(equipment: EquipmentResponseItem) {
             binding.tvTitle.text = equipment.productName
             binding.tvGallons.text = "Up to ${equipment.ratedGallons} gallons"
             binding.tvType.text = "Type: ${equipment.type}"
@@ -68,7 +68,7 @@ class EquipmentAdapter(private val context: Context) :
                 val maxGallons = constraint?.toString()?.toIntOrNull() ?: 0
 
                 equipmentListFiltered = if (maxGallons < 1) equipmentList else {
-                    val filteredList = ArrayList<FilterResponseItem>()
+                    val filteredList = ArrayList<EquipmentResponseItem>()
                     equipmentList
                         .filter {
                             it.ratedGallons <= maxGallons
@@ -85,7 +85,7 @@ class EquipmentAdapter(private val context: Context) :
                 equipmentListFiltered = if (results?.values == null)
                     ArrayList()
                 else
-                    results.values as ArrayList<FilterResponseItem>
+                    results.values as ArrayList<EquipmentResponseItem>
                 notifyDataSetChanged()
             }
 

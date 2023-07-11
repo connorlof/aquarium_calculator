@@ -3,7 +3,7 @@ package com.loftydev.aquariumcalculator.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class FilterResponseItem(
+data class EquipmentResponseItem(
     @SerializedName("Associates Link")
     val associatesLink: String,
     @SerializedName("Image Link")

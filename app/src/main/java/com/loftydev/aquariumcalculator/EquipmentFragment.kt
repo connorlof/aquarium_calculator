@@ -13,10 +13,12 @@ import com.loftydev.aquariumcalculator.data.util.Resource
 import com.loftydev.aquariumcalculator.databinding.FragmentEquipmentBinding
 import com.loftydev.aquariumcalculator.presentation.adapter.EquipmentAdapter
 import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModel
+import com.loftydev.aquariumcalculator.presentation.viewmodel.MenuViewModel
 
 class EquipmentFragment : Fragment() {
 
     lateinit var viewModel: EquipmentViewModel
+    lateinit var menuViewModel: MenuViewModel
     private lateinit var parentContext: Context
     private lateinit var equipmentAdapter: EquipmentAdapter
     private var _binding: FragmentEquipmentBinding? = null
@@ -40,9 +42,10 @@ class EquipmentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MenuActivity).equipmentViewModel
+        menuViewModel = (activity as MenuActivity).menuViewModel
 
         initRecyclerView()
-        viewFiltersList()
+        viewEquipmentList()
         setSearchView()
     }
 
@@ -59,9 +62,41 @@ class EquipmentFragment : Fragment() {
         }
     }
 
+    private fun viewEquipmentList() {
+        if (menuViewModel.lastSelectedItem.value == EQUIPMENT_FILTER) {
+            viewFiltersList()
+        } else {
+            viewHeatersList()
+        }
+    }
+
     private fun viewFiltersList() {
         viewModel.getFilters()
         viewModel.filters.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is Resource.Success -> {
+                    hideProgressBar()
+                    response.data?.let {
+                        equipmentAdapter.addData(it)
+                    }
+                }
+                is Resource.Error -> {
+                    hideProgressBar()
+                    response.message?.let {
+                        // TODO: Snackbar for error
+                        Toast.makeText(activity, "An error occurred: $it", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                is Resource.Loading -> {
+                    showProgressBar()
+                }
+            }
+        }
+    }
+
+    private fun viewHeatersList() {
+        viewModel.getHeaters()
+        viewModel.heaters.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
                     hideProgressBar()
