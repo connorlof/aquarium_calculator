@@ -1,11 +1,14 @@
 package com.loftydev.aquariumcalculator.presentation.di
 
 import com.loftydev.aquariumcalculator.domain.repository.EquipmentRepository
+import com.loftydev.aquariumcalculator.domain.repository.UnitSettingsRepository
 import com.loftydev.aquariumcalculator.domain.usecase.GetConversionUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetFiltersUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetHeatersUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetInchPerGallonUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetSurfaceAreaStockingUseCase
+import com.loftydev.aquariumcalculator.domain.usecase.GetUnitSettingsUseCase
+import com.loftydev.aquariumcalculator.domain.usecase.SaveUnitSettingsUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.SwapConversionUseCase
 import dagger.Module
 import dagger.Provides
@@ -55,6 +58,22 @@ class UseCaseModule {
         equipmentRepository: EquipmentRepository
     ): GetHeatersUseCase {
         return GetHeatersUseCase(equipmentRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGetUnitSettingsUseCase(
+        unitSettingsRepository: UnitSettingsRepository
+    ): GetUnitSettingsUseCase {
+        return GetUnitSettingsUseCase(unitSettingsRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideSaveUnitSettingsUseCase(
+        unitSettingsRepository: UnitSettingsRepository
+    ): SaveUnitSettingsUseCase {
+        return SaveUnitSettingsUseCase(unitSettingsRepository)
     }
 
 }
