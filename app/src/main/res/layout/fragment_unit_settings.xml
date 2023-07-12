@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UnitSettingsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fahrenheit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_temp_setting_tooltip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temperature Unit"
+            app:layout_constraintStart_toEndOf="@id/switch_temp"
+            app:layout_constraintTop_toTopOf="@id/switch_temp"
+            app:layout_constraintBottom_toBottomOf="@id/switch_temp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gallons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_temp" />
+
+        <TextView
+            android:id="@+id/tv_volume_setting_tooltip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Volume Unit"
+            app:layout_constraintStart_toEndOf="@id/switch_volume"
+            app:layout_constraintTop_toTopOf="@id/switch_volume"
+            app:layout_constraintBottom_toBottomOf="@id/switch_volume" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_dist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inches"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_volume" />
+
+        <TextView
+            android:id="@+id/tv_dist_setting_tooltip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distance Unit"
+            app:layout_constraintStart_toEndOf="@id/switch_dist"
+            app:layout_constraintTop_toTopOf="@id/switch_dist"
+            app:layout_constraintBottom_toBottomOf="@id/switch_dist" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -4,8 +4,12 @@ import android.content.res.Resources
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.loftydev.aquariumcalculator.databinding.FragmentMenuBinding
 import com.loftydev.aquariumcalculator.presentation.viewmodel.MenuViewModel
@@ -73,4 +77,5 @@ class MenuFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

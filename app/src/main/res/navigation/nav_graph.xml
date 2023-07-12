@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/MenuFragment"
         android:name="com.loftydev.aquariumcalculator.MenuFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_menu">
 
         <action
@@ -20,20 +20,40 @@
         <action
             android:id="@+id/action_MenuFragment_to_stockingFragment"
             app:destination="@id/stockingFragment" />
+        <action
+            android:id="@+id/action_MenuFragment_to_unitSettingsFragment"
+            app:destination="@id/unitSettingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/EquipmentFragment"
         android:name="com.loftydev.aquariumcalculator.EquipmentFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_equipment"/>
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_equipment">
+        <action
+            android:id="@+id/action_EquipmentFragment_to_unitSettingsFragment"
+            app:destination="@id/unitSettingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/unitConverterFragment"
         android:name="com.loftydev.aquariumcalculator.UnitConverterFragment"
-        android:label="UnitConverterFragment" >
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_unit_converter" >
+        <action
+            android:id="@+id/action_unitConverterFragment_to_unitSettingsFragment"
+            app:destination="@id/unitSettingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/stockingFragment"
         android:name="com.loftydev.aquariumcalculator.StockingFragment"
-        android:label="fragment_stocking"
-        tools:layout="@layout/fragment_stocking" />
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_stocking" >
+        <action
+            android:id="@+id/action_stockingFragment_to_unitSettingsFragment"
+            app:destination="@id/unitSettingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/unitSettingsFragment"
+        android:name="com.loftydev.aquariumcalculator.UnitSettingsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_unit_settings" />
 </navigation>
