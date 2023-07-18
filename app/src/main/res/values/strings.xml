@@ -5,6 +5,15 @@
     <string name="unit_title">Unit Converters</string>
     <string name="equipment_title">Recommended Equipment</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <!-- Menu icon titles -->
+    <string name="icon_ipg">Inch Per Gallon</string>
+    <string name="icon_sa">Surface Area</string>
+    <string name="icon_temp">Temperature</string>
+    <string name="icon_vol">Volume</string>
+    <string name="icon_dist">Distance</string>
+    <string name="icon_hard">Hardness</string>
+    <string name="icon_filter">Filter</string>
+    <string name="icon_heater">Heater</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

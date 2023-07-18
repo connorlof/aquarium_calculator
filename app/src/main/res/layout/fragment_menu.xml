@@ -11,173 +11,166 @@
         android:id="@+id/title_stocking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="8dp"
         android:text="@string/stocking_title"
         android:textColor="@color/primary_text"
         android:textSize="24sp" />
 
-    <TableLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/inch_stocking_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/card_rounded"
+            android:drawableTop="@drawable/baseline_square_foot_24"
+            android:gravity="bottom|center"
+            android:padding="8dp"
+            android:text="@string/icon_ipg"
+            android:textAlignment="gravity"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/inch_stocking_button"
-                android:layout_height="64dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1.0"
-                android:background="@drawable/card_rounded"
-                android:gravity="bottom|center"
-                android:padding="8dp"
-                android:text="Inch Per Gallon"
-                android:textAlignment="gravity"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sa_stocking_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/card_rounded"
+            android:drawableTop="@drawable/baseline_wb_twilight_24"
+            android:gravity="bottom|center"
+            android:padding="8dp"
+            android:text="@string/icon_sa"
+            android:textAlignment="gravity"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/sa_stocking_button"
-                android:layout_height="64dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1.0"
-                android:background="@drawable/card_rounded"
-                android:gravity="bottom|center"
-                android:padding="8dp"
-                android:text="Surface Area"
-                android:textAlignment="gravity"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp" />
-
-        </TableRow>
-
-    </TableLayout>
+    </TableRow>
 
     <TextView
         android:id="@+id/title_unit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="16dp"
         android:text="@string/unit_title"
         android:textColor="@color/primary_text"
         android:textSize="24sp" />
 
-    <TableLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/temp_conv_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/card_rounded"
+            android:drawableTop="@drawable/baseline_thermostat_24"
+            android:gravity="bottom|center"
+            android:padding="8dp"
+            android:text="@string/icon_temp"
+            android:textAlignment="gravity"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/temp_conv_button"
-                android:layout_height="64dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1.0"
-                android:background="@drawable/card_rounded"
-                android:gravity="bottom|center"
-                android:padding="8dp"
-                android:text="Temperature"
-                android:textAlignment="gravity"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/vol_conv_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/card_rounded"
+            android:drawableTop="@drawable/baseline_water_24"
+            android:gravity="bottom|center"
+            android:padding="8dp"
+            android:text="@string/icon_vol"
+            android:textAlignment="gravity"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/vol_conv_button"
-                android:layout_height="64dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1.0"
-                android:background="@drawable/card_rounded"
-                android:gravity="bottom|center"
-                android:padding="8dp"
-                android:text="Volume"
-                android:textAlignment="gravity"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp" />
+    </TableRow>
 
-        </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dist_conv_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/card_rounded"
+            android:drawableTop="@drawable/baseline_6_ft_apart_24"
+            android:gravity="bottom|center"
+            android:padding="8dp"
+            android:text="@string/icon_dist"
+            android:textAlignment="gravity"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/dist_conv_button"
-                android:layout_height="64dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1.0"
-                android:background="@drawable/card_rounded"
-                android:gravity="bottom|center"
-                android:padding="8dp"
-                android:text="Distance"
-                android:textAlignment="gravity"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hardness_conv_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/card_rounded"
+            android:drawableTop="@drawable/baseline_hardware_24"
+            android:gravity="bottom|center"
+            android:padding="8dp"
+            android:text="@string/icon_hard"
+            android:textAlignment="gravity"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/hardness_conv_button"
-                android:layout_height="64dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1.0"
-                android:background="@drawable/card_rounded"
-                android:gravity="bottom|center"
-                android:padding="8dp"
-                android:text="Hardness"
-                android:textAlignment="gravity"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp" />
-
-        </TableRow>
-
-    </TableLayout>
+    </TableRow>
 
     <TextView
         android:id="@+id/title_equipment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="16dp"
         android:text="@string/equipment_title"
         android:textColor="@color/primary_text"
         android:textSize="24sp" />
 
-    <TableLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/filter_equip_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/card_rounded"
+            android:drawableTop="@drawable/baseline_wind_power_24"
+            android:gravity="bottom|center"
+            android:padding="8dp"
+            android:text="@string/icon_filter"
+            android:textAlignment="gravity"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/filter_equip_button"
-                android:layout_height="64dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1.0"
-                android:background="@drawable/card_rounded"
-                android:gravity="bottom|center"
-                android:padding="8dp"
-                android:text="Filter"
-                android:textAlignment="gravity"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/heater_equip_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/card_rounded"
+            android:drawableTop="@drawable/baseline_thermostat_24"
+            android:gravity="bottom|center"
+            android:padding="8dp"
+            android:text="@string/icon_heater"
+            android:textAlignment="gravity"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/heater_equip_button"
-                android:layout_height="64dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1.0"
-                android:background="@drawable/card_rounded"
-                android:gravity="bottom|center"
-                android:padding="8dp"
-                android:text="Heater"
-                android:textAlignment="gravity"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp" />
-
-        </TableRow>
-
-    </TableLayout>
+    </TableRow>
 
 </LinearLayout>

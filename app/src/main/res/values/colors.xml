@@ -8,9 +8,9 @@
     <color name="faded_text">#76768D</color>
 
     <color name="layout_background">#27283A</color>
-    <color name="primary_card">#5649D2</color>
+    <color name="primary_card">#496CBE</color>
     <color name="secondary_card">#3A3F67</color>
     <color name="purple_widget">#D57BFE</color>
-    <color name="teal_widget">#69C0FF</color>
+    <color name="teal_widget">#85D4A7</color>
 
 </resources>
