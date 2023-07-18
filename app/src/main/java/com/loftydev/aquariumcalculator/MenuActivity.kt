@@ -16,6 +16,8 @@ import com.loftydev.aquariumcalculator.presentation.viewmodel.StockingViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.StockingViewModelFactory
 import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitConverterViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitConverterViewModelFactory
+import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitSettingsViewModel
+import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitSettingsViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -35,6 +37,10 @@ class MenuActivity : AppCompatActivity() {
     lateinit var equipmentFactory: EquipmentViewModelFactory
     lateinit var equipmentViewModel: EquipmentViewModel
 
+    @Inject
+    lateinit var unitSettingsFactory: UnitSettingsViewModelFactory
+    lateinit var unitSettingsViewModel: UnitSettingsViewModel
+
     val menuViewModel: MenuViewModel = MenuViewModel()
 
     private lateinit var binding: ActivityMenuBinding
@@ -53,6 +59,7 @@ class MenuActivity : AppCompatActivity() {
         equipmentViewModel = ViewModelProvider(this, equipmentFactory)[EquipmentViewModel::class.java]
         stockingViewModel = ViewModelProvider(this, stockingFactory)[StockingViewModel::class.java]
         unitConverterViewModel = ViewModelProvider(this, unitConverterFactory)[UnitConverterViewModel::class.java]
+        unitSettingsViewModel = ViewModelProvider(this, unitSettingsFactory)[UnitSettingsViewModel::class.java]
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

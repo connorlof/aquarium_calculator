@@ -6,10 +6,13 @@ import com.loftydev.aquariumcalculator.domain.usecase.GetFiltersUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetHeatersUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetInchPerGallonUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.GetSurfaceAreaStockingUseCase
+import com.loftydev.aquariumcalculator.domain.usecase.GetUnitSettingsUseCase
+import com.loftydev.aquariumcalculator.domain.usecase.SaveUnitSettingsUseCase
 import com.loftydev.aquariumcalculator.domain.usecase.SwapConversionUseCase
 import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModelFactory
 import com.loftydev.aquariumcalculator.presentation.viewmodel.StockingViewModelFactory
 import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitConverterViewModelFactory
+import com.loftydev.aquariumcalculator.presentation.viewmodel.UnitSettingsViewModelFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,6 +51,16 @@ class FactoryModule {
         getHeatersUseCase: GetHeatersUseCase
     ): EquipmentViewModelFactory {
         return EquipmentViewModelFactory(app, getFiltersUseCase, getHeatersUseCase)
+    }
+
+    @Singleton
+    @Provides
+    fun provideUnitSettingsViewModelFactory(
+        app: Application,
+        getUnitSettingsUseCase: GetUnitSettingsUseCase,
+        saveUnitSettingsUseCase: SaveUnitSettingsUseCase,
+    ): UnitSettingsViewModelFactory {
+        return UnitSettingsViewModelFactory(app, getUnitSettingsUseCase, saveUnitSettingsUseCase)
     }
 
 }
