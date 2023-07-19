@@ -1,29 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/layout_background"
     tools:context=".EquipmentFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_equipment_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/equipment_filter_title"
+            android:textColor="@color/primary_text"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_equipment_header" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:background="@drawable/card_rounded_input" >
+
+                <TextView
+                    android:id="@+id/tv_equip_input_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/tank_volume"
+                    android:labelFor="@+id/et_equip_input"
+                    android:textColor="@color/primary_text"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/et_equip_input"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/primary_text"
+                    android:importantForAutofill="no" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/faded_text" />
+
+                <TextView
+                    android:id="@+id/tv_equip_unit"
+                    android:layout_width="72dp"
+                    android:layout_height="25dp"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/gallons"
+                    android:textAlignment="center"
+                    android:textColor="@color/faded_text"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_equipment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <ProgressBar
+                android:id="@+id/pb_equipment"
+                style="?android:attr/progressBarStyle"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--
     <SearchView
         android:id="@+id/sv_tank_gallons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/secondary_card" />
+    -->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_equipment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <ProgressBar
-        android:id="@+id/pb_equipment"
-        style="?android:attr/progressBarStyle"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+</FrameLayout>

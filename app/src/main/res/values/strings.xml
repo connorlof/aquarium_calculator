@@ -5,15 +5,22 @@
     <string name="ipg_title">Stocking: Inch Per Gallon</string>
     <string name="inches_fish">Inches of fish</string>
     <string name="volume">Volume</string>
+    <string name="tank_volume">Tank Volume</string>
     <string name="stock_level">Stocking Level</string>
     <string name="healthy">Healthy</string>
     <string name="details">Details</string>
     <string name="enter_tank_dim">Enter the tank dimension</string>
+    <string name="enter_tank_vol">Enter the volume of your tank</string>
     <string name="enter_convert_value">Enter the value to convert</string>
     <string name="unit_title">Unit Converters</string>
     <string name="convert_prefix">Convert:</string>
     <string name="swap_units">Swap Units</string>
     <string name="equipment_title">Recommended Equipment</string>
+    <string name="equipment_filter_title">Filter Recommendations</string>
+    <string name="equipment_img">Equipment Image</string>
+    <string name="up_to_gal">Up to 0 gallons</string>
+    <string name="type">Type: Unknown</string>
+    <string name="quantity">0 is recommended</string>
     <string name="title_activity_menu">MenuActivity</string>
     <!-- Menu icon titles -->
     <string name="icon_ipg">Inch Per Gallon</string>

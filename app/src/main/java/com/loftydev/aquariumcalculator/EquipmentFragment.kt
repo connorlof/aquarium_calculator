@@ -1,19 +1,22 @@
 package com.loftydev.aquariumcalculator
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.loftydev.aquariumcalculator.data.model.UnitSystemType
 import com.loftydev.aquariumcalculator.data.util.Resource
 import com.loftydev.aquariumcalculator.databinding.FragmentEquipmentBinding
 import com.loftydev.aquariumcalculator.presentation.adapter.EquipmentAdapter
 import com.loftydev.aquariumcalculator.presentation.viewmodel.EquipmentViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.MenuViewModel
+import kotlin.math.roundToInt
 
 class EquipmentFragment : Fragment() {
 
@@ -44,6 +47,9 @@ class EquipmentFragment : Fragment() {
         viewModel = (activity as MenuActivity).equipmentViewModel
         menuViewModel = (activity as MenuActivity).menuViewModel
 
+        viewModel.reset()
+        setHeader()
+        observeUnits()
         initRecyclerView()
         viewEquipmentList()
         setSearchView()
@@ -52,6 +58,25 @@ class EquipmentFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setHeader() {
+        if (menuViewModel.lastSelectedItem.value == EQUIPMENT_FILTER) {
+            binding.tvEquipmentHeader.text = "Filter Recommendations"
+        } else {
+            binding.tvEquipmentHeader.text = "Heater Recommendations"
+        }
+    }
+
+    private fun observeUnits() {
+        viewModel.volumeUnit.observe(viewLifecycleOwner) { volumeUnit ->
+            if (volumeUnit == UnitSystemType.METRIC) {
+                binding.tvEquipUnit.text = "l"
+            } else {
+                binding.tvEquipUnit.text = "g"
+            }
+        }
     }
 
     private fun initRecyclerView() {
@@ -63,6 +88,7 @@ class EquipmentFragment : Fragment() {
     }
 
     private fun viewEquipmentList() {
+        viewModel.reset()
         if (menuViewModel.lastSelectedItem.value == EQUIPMENT_FILTER) {
             viewFiltersList()
         } else {
@@ -119,17 +145,15 @@ class EquipmentFragment : Fragment() {
     }
 
     private fun setSearchView() {
-        binding.svTankGallons.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(p0: String?): Boolean {
-                equipmentAdapter.filter.filter(p0)
-                return false
-            }
+        binding.etEquipInput.doOnTextChanged { text, _, _, _ ->
+            val filterForGallons = if (viewModel.volumeUnit.value == UnitSystemType.METRIC) {
+                val liters = text.toString().toDoubleOrNull() ?: 0.0
+                val gallons = liters / 3.785
+                gallons.roundToInt().toString()
+            } else text
 
-            override fun onQueryTextChange(p0: String?): Boolean {
-                equipmentAdapter.filter.filter(p0)
-                return false
-            }
-        })
+            equipmentAdapter.filter.filter(filterForGallons)
+        }
     }
 
     private fun showProgressBar() {

@@ -49,9 +49,10 @@ class FactoryModule {
     fun provideEquipmentViewModelFactory(
         app: Application,
         getFiltersUseCase: GetFiltersUseCase,
-        getHeatersUseCase: GetHeatersUseCase
+        getHeatersUseCase: GetHeatersUseCase,
+        getUnitSettingsUseCase: GetUnitSettingsUseCase,
     ): EquipmentViewModelFactory {
-        return EquipmentViewModelFactory(app, getFiltersUseCase, getHeatersUseCase)
+        return EquipmentViewModelFactory(app, getFiltersUseCase, getHeatersUseCase, getUnitSettingsUseCase)
     }
 
     @Singleton
