@@ -41,11 +41,11 @@
                 android:background="@drawable/card_rounded_input" >
 
                 <TextView
-                    android:id="@+id/tv_fish_inches_hint"
+                    android:id="@+id/tv_tank_dimension_hint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="16dp"
-                    android:text="@string/inches_fish"
+                    android:text="@string/volume"
                     android:labelFor="@+id/et_tank_dimension"
                     android:textColor="@color/primary_text"
                     android:textSize="12sp" />
@@ -69,7 +69,7 @@
                     android:background="@color/faded_text" />
 
                 <TextView
-                    android:id="@+id/tv_distance_unit"
+                    android:id="@+id/tv_tank_dimension_unit"
                     android:layout_width="72dp"
                     android:layout_height="25dp"
                     android:paddingHorizontal="16dp"
@@ -90,11 +90,11 @@
                 android:background="@drawable/card_rounded_input" >
 
                 <TextView
-                    android:id="@+id/tv_tank_dimension_hint"
+                    android:id="@+id/tv_fish_inches_hint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="16dp"
-                    android:text="@string/volume"
+                    android:text="@string/inches_fish"
                     android:textColor="@color/primary_text"
                     android:labelFor="@+id/et_fish_distance"
                     android:textSize="12sp" />
@@ -118,7 +118,7 @@
                     android:background="@color/faded_text" />
 
                 <TextView
-                    android:id="@+id/tv_tank_dimension_unit"
+                    android:id="@+id/tv_distance_unit"
                     android:layout_width="72dp"
                     android:layout_height="25dp"
                     android:paddingHorizontal="16dp"

@@ -68,7 +68,6 @@ class StockingFragment : Fragment() {
 
     private fun setUnits() {
         if (menuViewModel.lastSelectedItem.value == STOCKING_INCH_GALLON) {
-
             binding.tvDistanceUnit.text = distanceUnit()
             binding.tvTankDimensionUnit.text = volumeUnit()
         } else {
