@@ -82,7 +82,7 @@ class UnitConverterFragment : Fragment() {
 
     private fun observe() {
         viewModel.output.observe(viewLifecycleOwner) { output ->
-            binding.tvConvertOutput.text = output.toString()
+            binding.tvConvertOutput.text = String.format("%.2f", output)
         }
 
         viewModel.conversionType.observe(viewLifecycleOwner) { type ->
@@ -95,11 +95,12 @@ class UnitConverterFragment : Fragment() {
     private fun setListeners() {
         binding.btnConvertSwap.setOnClickListener {
             viewModel.swapUnits()
+            convert()
         }
 
         binding.etConvertInput.doOnTextChanged { _, _, _, _ ->
             MainScope().launch {
-                delay(1000)
+                delay(500)
                 convert()
             }
         }
