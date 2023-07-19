@@ -38,9 +38,10 @@ class FactoryModule {
     fun provideStockingViewModelFactory(
         app: Application,
         getInchPerGallonUseCase: GetInchPerGallonUseCase,
-        getSurfaceAreaStockingUseCase: GetSurfaceAreaStockingUseCase
+        getSurfaceAreaStockingUseCase: GetSurfaceAreaStockingUseCase,
+        getUnitSettingsUseCase: GetUnitSettingsUseCase
     ): StockingViewModelFactory {
-        return StockingViewModelFactory(app, getInchPerGallonUseCase, getSurfaceAreaStockingUseCase)
+        return StockingViewModelFactory(app, getInchPerGallonUseCase, getSurfaceAreaStockingUseCase, getUnitSettingsUseCase)
     }
 
     @Singleton

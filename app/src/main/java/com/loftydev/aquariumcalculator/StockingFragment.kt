@@ -1,12 +1,15 @@
 package com.loftydev.aquariumcalculator
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.text.HtmlCompat
 import androidx.core.widget.doOnTextChanged
+import com.loftydev.aquariumcalculator.data.model.UnitSystemType
 import com.loftydev.aquariumcalculator.databinding.FragmentStockingBinding
 import com.loftydev.aquariumcalculator.presentation.viewmodel.MenuViewModel
 import com.loftydev.aquariumcalculator.presentation.viewmodel.StockingViewModel
@@ -40,10 +43,12 @@ class StockingFragment : Fragment() {
         viewModel.reset()
         setHeader()
         setHint()
+        setUnits()
         observe()
         setListeners()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setHeader() {
         if (menuViewModel.lastSelectedItem.value == STOCKING_INCH_GALLON) {
             binding.tvStockingHeader.text = "Inch Per Gallon"
@@ -52,13 +57,40 @@ class StockingFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setHint() {
         if (menuViewModel.lastSelectedItem.value == STOCKING_INCH_GALLON) {
-            binding.tvTankDimensionHint.text = "Tank Gallons"
+            binding.tvTankDimensionHint.text = "Volume"
         } else {
-            binding.tvTankDimensionHint.text = "Tank Sq Inches"
+            binding.tvTankDimensionHint.text = "Surface Area"
         }
     }
+
+    private fun setUnits() {
+        if (menuViewModel.lastSelectedItem.value == STOCKING_INCH_GALLON) {
+
+            binding.tvDistanceUnit.text = distanceUnit()
+            binding.tvTankDimensionUnit.text = volumeUnit()
+        } else {
+            binding.tvDistanceUnit.text = distanceUnit()
+            binding.tvTankDimensionUnit.text = surfaceAreaUnit()
+        }
+    }
+
+    private fun distanceUnit() =
+        if (viewModel.distanceUnit.value == UnitSystemType.METRIC) { "mm" }
+        else { "in" }
+
+    private fun volumeUnit() =
+        if (viewModel.volumeUnit.value == UnitSystemType.METRIC) { "l" }
+        else { "g" }
+
+    private fun surfaceAreaUnit() =
+        if (viewModel.distanceUnit.value == UnitSystemType.METRIC) {
+            HtmlCompat.fromHtml("mm&#xB2;", HtmlCompat.FROM_HTML_MODE_LEGACY)
+        } else {
+            HtmlCompat.fromHtml("in&#xB2;", HtmlCompat.FROM_HTML_MODE_LEGACY)
+        }
 
     private fun observe() {
         viewModel.stockingPercent.observe(viewLifecycleOwner) { output ->
@@ -74,6 +106,7 @@ class StockingFragment : Fragment() {
             "0 %"
         }
 
+    @SuppressLint("SetTextI18n")
     private fun setStockingDescription(stockingPercent: Double) {
         if (stockingPercent < .85) {
             binding.tvResultDesc.text = "Healthy"
@@ -91,7 +124,7 @@ class StockingFragment : Fragment() {
     }
 
     private fun setListeners() {
-        binding.etFishInches.doOnTextChanged { _, _, _, _ ->
+        binding.etFishDistance.doOnTextChanged { _, _, _, _ ->
             MainScope().launch {
                 delay(500)
                 calculate()
@@ -107,14 +140,14 @@ class StockingFragment : Fragment() {
     }
 
     private fun calculate() {
-        val inchesOfFish = binding.etFishInches.text.toString().toDoubleOrNull() ?: 0.0
+        val fishDistance = binding.etFishDistance.text.toString().toDoubleOrNull() ?: 0.0
 
         if (menuViewModel.lastSelectedItem.value == STOCKING_INCH_GALLON) {
-            val gallons = binding.etTankDimension.text.toString().toDoubleOrNull() ?: 0.0
-            viewModel.calculateInchPerGallon(inchesOfFish, gallons)
+            val volume = binding.etTankDimension.text.toString().toDoubleOrNull() ?: 0.0
+            viewModel.calculateInchPerGallon(fishDistance, volume)
         } else {
-            val sqInches = binding.etTankDimension.text.toString().toDoubleOrNull() ?: 0.0
-            viewModel.calculateSurfaceArea(inchesOfFish, sqInches)
+            val surfaceArea = binding.etTankDimension.text.toString().toDoubleOrNull() ?: 0.0
+            viewModel.calculateSurfaceArea(fishDistance, surfaceArea)
         }
     }
 

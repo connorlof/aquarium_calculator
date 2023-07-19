@@ -12,254 +12,183 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tv_stocking_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stocking: Inch Per Gallon"
-        android:textColor="@color/primary_text"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_stocking_header" >
+        <TextView
+            android:id="@+id/tv_stocking_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ipg_title"
+            android:textColor="@color/primary_text"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            android:background="@drawable/card_rounded_input" >
-
-            <TextView
-                android:id="@+id/tv_tank_dimension_hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="16dp"
-                android:text="Volume"
-                android:textColor="@color/primary_text"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/et_tank_dimension"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:contentDescription="Enter the tank dimension"
-                android:inputType="numberDecimal"
-                android:paddingHorizontal="16dp"
-                android:textAlignment="textEnd"
-                android:textColor="@color/primary_text" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/faded_text" />
-
-            <TextView
-                android:id="@+id/value_unit_symbol"
-                android:layout_width="48dp"
-                android:layout_height="25dp"
-                android:paddingHorizontal="16dp"
-                android:text="g"
-                android:textColor="@color/faded_text"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            android:background="@drawable/card_rounded_input" >
-
-            <TextView
-                android:id="@+id/tv_fish_inches_hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="16dp"
-                android:text="Inches of fish"
-                android:textColor="@color/primary_text"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/et_fish_inches"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:contentDescription="Enter the inches of fish"
-                android:inputType="numberDecimal"
-                android:paddingHorizontal="16dp"
-                android:textAlignment="textEnd"
-                android:textColor="@color/primary_text" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/faded_text" />
-
-            <TextView
-                android:id="@+id/value_unit_symbol_2"
-                android:layout_width="48dp"
-                android:layout_height="25dp"
-                android:paddingHorizontal="16dp"
-                android:text="in"
-                android:textColor="@color/faded_text"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/card_rounded_input" >
-
-            <TextView
-                android:id="@+id/tv_result_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="8dp"
-                android:text="Stocking Level"
-                android:textColor="@color/faded_text"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_stocking_output"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="8dp"
-                android:paddingTop="8dp"
-                android:text="50 %"
-                android:textColor="@color/primary_text"
-                android:textSize="64sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_result_label" />
-
-            <TextView
-                android:id="@+id/tv_result_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="8dp"
-                android:text="Healthy"
-                android:textColor="@color/teal_widget"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_stocking_output" />
-
-            <ImageView
-                android:id="@+id/iv_tv_result_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/outline_info_24"
-                android:paddingHorizontal="16dp"
-                android:paddingBottom="16dp"
-                android:paddingTop="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_result_desc" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
-
-        <!--
-
-        <EditText
-            android:id="@+id/et_tank_dimension"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:padding="4dp"
-            android:layout_margin="4dp"
-            android:background="@color/secondary_card"
-            android:ems="10"
-            android:inputType="number"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_stocking_header" />
+            app:layout_constraintTop_toBottomOf="@id/tv_stocking_header" >
 
-        <TextView
-            android:id="@+id/tv_tank_dimension_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gallons"
-            android:textColor="@color/primary_text"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/et_tank_dimension"
-            app:layout_constraintTop_toBottomOf="@id/et_tank_dimension" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:background="@drawable/card_rounded_input" >
 
-        <EditText
-            android:id="@+id/et_fish_inches"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:padding="4dp"
-            android:layout_margin="4dp"
-            android:background="@color/secondary_card"
-            android:ems="10"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_tank_dimension_hint" />
+                <TextView
+                    android:id="@+id/tv_fish_inches_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/inches_fish"
+                    android:labelFor="@+id/et_tank_dimension"
+                    android:textColor="@color/primary_text"
+                    android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/tv_fish_inches_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Inches of fish"
-            android:textColor="@color/primary_text"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/et_fish_inches"
-            app:layout_constraintTop_toBottomOf="@id/et_fish_inches" />
+                <EditText
+                    android:id="@+id/et_tank_dimension"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/enter_tank_dim"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/primary_text"
+                    android:importantForAutofill="no" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/faded_text" />
 
-    <Button
-        android:id="@+id/btn_stocking_calculate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="Calculate"
-        app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintEnd_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/tv_fish_inches_hint" />
+                <TextView
+                    android:id="@+id/tv_distance_unit"
+                    android:layout_width="72dp"
+                    android:layout_height="25dp"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/gallons"
+                    android:textAlignment="center"
+                    android:textColor="@color/faded_text"
+                    android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/tv_stocking_output"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stocking Level: 0%"
-        android:textColor="@color/primary_text"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_stocking_calculate" />
+            </LinearLayout>
 
-        -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:background="@drawable/card_rounded_input" >
+
+                <TextView
+                    android:id="@+id/tv_tank_dimension_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/volume"
+                    android:textColor="@color/primary_text"
+                    android:labelFor="@+id/et_fish_distance"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/et_fish_distance"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/inches_fish"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="16dp"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/primary_text"
+                    android:importantForAutofill="no" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/faded_text" />
+
+                <TextView
+                    android:id="@+id/tv_tank_dimension_unit"
+                    android:layout_width="72dp"
+                    android:layout_height="25dp"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/inches"
+                    android:textAlignment="center"
+                    android:textColor="@color/faded_text"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/card_rounded_input" >
+
+                <TextView
+                    android:id="@+id/tv_result_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/stock_level"
+                    android:textColor="@color/faded_text"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_stocking_output"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/zero_pct"
+                    android:textColor="@color/primary_text"
+                    android:textSize="64sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_result_label" />
+
+                <TextView
+                    android:id="@+id/tv_result_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/healthy"
+                    android:textColor="@color/teal_widget"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_stocking_output" />
+
+                <ImageView
+                    android:id="@+id/iv_tv_result_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/outline_info_24"
+                    android:paddingHorizontal="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="4dp"
+                    android:contentDescription="@string/details"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_result_desc" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
