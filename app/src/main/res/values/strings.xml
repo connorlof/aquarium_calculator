@@ -9,7 +9,10 @@
     <string name="healthy">Healthy</string>
     <string name="details">Details</string>
     <string name="enter_tank_dim">Enter the tank dimension</string>
+    <string name="enter_convert_value">Enter the value to convert</string>
     <string name="unit_title">Unit Converters</string>
+    <string name="convert_prefix">Convert:</string>
+    <string name="swap_units">Swap Units</string>
     <string name="equipment_title">Recommended Equipment</string>
     <string name="title_activity_menu">MenuActivity</string>
     <!-- Menu icon titles -->
@@ -25,6 +28,10 @@
     <string name="gallons">g</string>
     <string name="inches">in</string>
     <string name="zero_pct">0 %</string>
+    <string name="zero">0</string>
+    <string name="fahrenheit_name">Fahrenheit</string>
+    <string name="celsius_name">Celsius</string>
+    <string name="fahrenheit">°F</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

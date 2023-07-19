@@ -1,5 +1,6 @@
 package com.loftydev.aquariumcalculator
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -36,9 +37,47 @@ class UnitConverterFragment : Fragment() {
         viewModel = (activity as MenuActivity).unitConverterViewModel
         menuViewModel = (activity as MenuActivity).menuViewModel
 
+        setHeader()
+        setUnits()
         observe()
         setListeners()
         setInitialConversionType()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setHeader() {
+        val header = when (viewModel.conversionType.value) {
+            ConversionType.FAHRENHEIT_TO_CELSIUS -> "°F to °C"
+            ConversionType.CELSIUS_TO_FAHRENHEIT -> "°C to °F"
+            ConversionType.GALLONS_TO_LITERS -> "Liters to Gallons"
+            ConversionType.LITERS_TO_GALLONS -> "Gallons to Liter"
+            ConversionType.INCHES_TO_MM -> "Inches to MM"
+            ConversionType.MM_TO_INCHES -> "MM to Inches"
+            ConversionType.PPM_TO_DEGREES -> "PPM to °GH"
+            ConversionType.DEGREES_TO_PPM -> "°GH to PPM"
+            else -> "Unknown Units"
+        }
+
+        binding.tvConvertHeader.text = "Convert: $header"
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setUnits() {
+        val units = when (viewModel.conversionType.value) {
+            ConversionType.FAHRENHEIT_TO_CELSIUS -> Triple("Fahrenheit", "°F", "Celsius")
+            ConversionType.CELSIUS_TO_FAHRENHEIT -> Triple("Celsius", "°C", "Fahrenheit")
+            ConversionType.GALLONS_TO_LITERS -> Triple("Liters", "l", "Gallons")
+            ConversionType.LITERS_TO_GALLONS -> Triple("Gallons", "g", "Liters")
+            ConversionType.INCHES_TO_MM -> Triple("Inches", "in", "Millimeters")
+            ConversionType.MM_TO_INCHES -> Triple("MM", "mm", "Inches")
+            ConversionType.PPM_TO_DEGREES -> Triple("PPM", "ppm", "°GH")
+            ConversionType.DEGREES_TO_PPM -> Triple("°GH", "°GH", "PPM")
+            else -> Triple("Unknown", "??", "Error")
+        }
+
+        binding.tvConvertInputHint.text = units.first
+        binding.tvConvertUnit.text = units.second
+        binding.tvResultLabel.text = units.third
     }
 
     private fun observe() {
@@ -48,11 +87,12 @@ class UnitConverterFragment : Fragment() {
 
         viewModel.conversionType.observe(viewLifecycleOwner) { type ->
             binding.tvConvertHeader.text = type.header
+            setHeader()
+            setUnits()
         }
     }
 
     private fun setListeners() {
-        binding.btnConvertCalculate.setOnClickListener { convert() }
         binding.btnConvertSwap.setOnClickListener {
             viewModel.swapUnits()
         }
