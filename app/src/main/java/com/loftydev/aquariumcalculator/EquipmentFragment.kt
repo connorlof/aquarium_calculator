@@ -2,14 +2,18 @@ package com.loftydev.aquariumcalculator
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.loftydev.aquariumcalculator.data.model.UnitSystemType
 import com.loftydev.aquariumcalculator.data.util.Resource
 import com.loftydev.aquariumcalculator.databinding.FragmentEquipmentBinding
@@ -108,10 +112,7 @@ class EquipmentFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     hideProgressBar()
-                    response.message?.let {
-                        // TODO: Snackbar for error
-                        Toast.makeText(activity, "An error occurred: $it", Toast.LENGTH_SHORT).show()
-                    }
+                    showErrorSnackBar("filters")
                 }
                 is Resource.Loading -> {
                     showProgressBar()
@@ -132,16 +133,27 @@ class EquipmentFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     hideProgressBar()
-                    response.message?.let {
-                        // TODO: Snackbar for error
-                        Toast.makeText(activity, "An error occurred: $it", Toast.LENGTH_SHORT).show()
-                    }
+                    showErrorSnackBar("heaters")
                 }
                 is Resource.Loading -> {
                     showProgressBar()
                 }
             }
         }
+    }
+
+    private fun showErrorSnackBar(equipmentType: String) {
+        val snackBar = Snackbar.make(
+            requireActivity().findViewById(R.id.equipment_constraint_layout), "Error loading $equipmentType",
+            Snackbar.LENGTH_LONG
+        )
+
+        val snackBarView = snackBar.view
+        snackBarView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.secondary_text))
+
+        val textView = snackBarView.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
+        textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.primary_text))
+        snackBar.show()
     }
 
     private fun setSearchView() {
