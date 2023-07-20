@@ -21,6 +21,10 @@
     <string name="up_to_gal">Up to 0 gallons</string>
     <string name="type">Type: Unknown</string>
     <string name="quantity">0 is recommended</string>
+    <string name="unit_settings">Unit Settings</string>
+    <string name="temp_unit">Temperature Unit</string>
+    <string name="vol_unit">Volume Unit</string>
+    <string name="dist_unit">Distance Unit</string>
     <string name="title_activity_menu">MenuActivity</string>
     <!-- Menu icon titles -->
     <string name="icon_ipg">Inch Per Gallon</string>
@@ -38,6 +42,8 @@
     <string name="zero">0</string>
     <string name="fahrenheit_name">Fahrenheit</string>
     <string name="celsius_name">Celsius</string>
+    <string name="gallons_name">Gallons</string>
+    <string name="inches_name">Inches</string>
     <string name="fahrenheit">°F</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

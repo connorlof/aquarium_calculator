@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/layout_background"
     tools:context=".UnitSettingsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,68 +12,167 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switch_temp"
+        <TextView
+            android:id="@+id/tv_unit_setting_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fahrenheit"
+            android:text="@string/unit_settings"
+            android:textColor="@color/primary_text"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_temp_setting_tooltip"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Temperature Unit"
-            app:layout_constraintStart_toEndOf="@id/switch_temp"
-            app:layout_constraintTop_toTopOf="@id/switch_temp"
-            app:layout_constraintBottom_toBottomOf="@id/switch_temp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switch_volume"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gallons"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/switch_temp" />
+            app:layout_constraintTop_toBottomOf="@id/tv_unit_setting_header" >
 
-        <TextView
-            android:id="@+id/tv_volume_setting_tooltip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Volume Unit"
-            app:layout_constraintStart_toEndOf="@id/switch_volume"
-            app:layout_constraintTop_toTopOf="@id/switch_volume"
-            app:layout_constraintBottom_toBottomOf="@id/switch_volume" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:background="@drawable/card_rounded_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switch_dist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Inches"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/switch_volume" />
+                <TextView
+                    android:id="@+id/tv_unit_temp_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/temp_unit"
+                    android:labelFor="@+id/et_convert_input"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_dist_setting_tooltip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Distance Unit"
-            app:layout_constraintStart_toEndOf="@id/switch_dist"
-            app:layout_constraintTop_toTopOf="@id/switch_dist"
-            app:layout_constraintBottom_toBottomOf="@id/switch_dist" />
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_temp_unit"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btn_save_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Save Settings"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/switch_dist" />
+                <TextView
+                    android:id="@+id/tv_temp_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/fahrenheit_name"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_text"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/switch_temp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:background="@drawable/card_rounded_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <TextView
+                    android:id="@+id/tv_unit_vol_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/vol_unit"
+                    android:labelFor="@+id/et_convert_input"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_vol_unit"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_vol_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/gallons_name"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_text"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/switch_volume" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:background="@drawable/card_rounded_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <TextView
+                    android:id="@+id/tv_unit_dist_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/dist_unit"
+                    android:labelFor="@+id/et_convert_input"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_dist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_dist_unit"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_dist_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/inches_name"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_text"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/switch_dist" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
