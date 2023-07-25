@@ -95,7 +95,7 @@ class UnitConverterFragment : Fragment() {
     private fun setListeners() {
         binding.btnConvertSwap.setOnClickListener {
             viewModel.swapUnits()
-            convert()
+            swapInputOutputText()
         }
 
         binding.etConvertInput.doOnTextChanged { _, _, _, _ ->
@@ -104,6 +104,13 @@ class UnitConverterFragment : Fragment() {
                 convert()
             }
         }
+    }
+
+    private fun swapInputOutputText() {
+        val oldInput = binding.etConvertInput.text
+        val oldOutput = binding.tvConvertOutput.text
+        binding.etConvertInput.setText(oldOutput)
+        binding.tvConvertOutput.text = oldInput
     }
 
     private fun setInitialConversionType() {
