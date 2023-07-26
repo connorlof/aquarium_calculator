@@ -66,8 +66,8 @@ class UnitConverterFragment : Fragment() {
         val units = when (viewModel.conversionType.value) {
             ConversionType.FAHRENHEIT_TO_CELSIUS -> Triple("Fahrenheit", "°F", "Celsius")
             ConversionType.CELSIUS_TO_FAHRENHEIT -> Triple("Celsius", "°C", "Fahrenheit")
-            ConversionType.GALLONS_TO_LITERS -> Triple("Liters", "l", "Gallons")
-            ConversionType.LITERS_TO_GALLONS -> Triple("Gallons", "g", "Liters")
+            ConversionType.GALLONS_TO_LITERS -> Triple("Gallons", "g", "Liters")
+            ConversionType.LITERS_TO_GALLONS -> Triple("Liters", "l", "Gallons")
             ConversionType.INCHES_TO_MM -> Triple("Inches", "in", "Millimeters")
             ConversionType.MM_TO_INCHES -> Triple("MM", "mm", "Inches")
             ConversionType.PPM_TO_DEGREES -> Triple("PPM", "ppm", "°GH")
@@ -95,7 +95,7 @@ class UnitConverterFragment : Fragment() {
     private fun setListeners() {
         binding.btnConvertSwap.setOnClickListener {
             viewModel.swapUnits()
-            swapInputOutputText()
+            swapInputOutput()
         }
 
         binding.etConvertInput.doOnTextChanged { _, _, _, _ ->
@@ -106,11 +106,9 @@ class UnitConverterFragment : Fragment() {
         }
     }
 
-    private fun swapInputOutputText() {
-        val oldInput = binding.etConvertInput.text
+    private fun swapInputOutput() {
         val oldOutput = binding.tvConvertOutput.text
         binding.etConvertInput.setText(oldOutput)
-        binding.tvConvertOutput.text = oldInput
     }
 
     private fun setInitialConversionType() {

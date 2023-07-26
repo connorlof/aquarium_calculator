@@ -49,7 +49,7 @@ class EquipmentAPIServiceTest {
             val request = server.takeRequest()
 
             assertThat(responseBody).isNotNull()
-            assertThat(request.path).isEqualTo("/data/filters")
+            assertThat(request.path).isEqualTo("/data/filters.json")
         }
     }
 
@@ -63,7 +63,7 @@ class EquipmentAPIServiceTest {
 
             assertThat(filter.ratedGallons).isEqualTo(5)
             assertThat(filter.type).isEqualTo("HOB")
-            assertThat(filter.quantity).isEqualTo(1)
+            assertThat(filter.quantity).isEqualTo("1")
             assertThat(filter.productName).isEqualTo("Tetra Whisper IQ 10")
             assertThat(filter.imageLink).isEqualTo("https://m.media-amazon.com/test1.jpg")
             assertThat(filter.associatesLink).isEqualTo("https://amzn.to/test1")
