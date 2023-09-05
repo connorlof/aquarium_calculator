@@ -1,8 +1,7 @@
 package com.loftydev.aquariumcalculator.presentation.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.loftydev.aquariumcalculator.data.model.ConversionType
 import com.loftydev.aquariumcalculator.domain.usecase.GetConversionUseCase
@@ -11,10 +10,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UnitConverterViewModel(
-    app: Application,
     private val getConversionUseCase: GetConversionUseCase,
     private val swapConversionUseCase: SwapConversionUseCase,
-) : AndroidViewModel(app) {
+) : ViewModel() {
 
     val output: MutableLiveData<Double> = MutableLiveData()
     val conversionType: MutableLiveData<ConversionType> = MutableLiveData()

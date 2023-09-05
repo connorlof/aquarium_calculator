@@ -26,43 +26,39 @@ class FactoryModule {
     @Singleton
     @Provides
     fun provideUnitConverterViewModelFactory(
-        app: Application,
         getConversionUseCase: GetConversionUseCase,
         swapConversionUseCase: SwapConversionUseCase
     ): UnitConverterViewModelFactory {
-        return UnitConverterViewModelFactory(app, getConversionUseCase, swapConversionUseCase)
+        return UnitConverterViewModelFactory(getConversionUseCase, swapConversionUseCase)
     }
 
     @Singleton
     @Provides
     fun provideStockingViewModelFactory(
-        app: Application,
         getInchPerGallonUseCase: GetInchPerGallonUseCase,
         getSurfaceAreaStockingUseCase: GetSurfaceAreaStockingUseCase,
         getUnitSettingsUseCase: GetUnitSettingsUseCase
     ): StockingViewModelFactory {
-        return StockingViewModelFactory(app, getInchPerGallonUseCase, getSurfaceAreaStockingUseCase, getUnitSettingsUseCase)
+        return StockingViewModelFactory(getInchPerGallonUseCase, getSurfaceAreaStockingUseCase, getUnitSettingsUseCase)
     }
 
     @Singleton
     @Provides
     fun provideEquipmentViewModelFactory(
-        app: Application,
         getFiltersUseCase: GetFiltersUseCase,
         getHeatersUseCase: GetHeatersUseCase,
         getUnitSettingsUseCase: GetUnitSettingsUseCase,
     ): EquipmentViewModelFactory {
-        return EquipmentViewModelFactory(app, getFiltersUseCase, getHeatersUseCase, getUnitSettingsUseCase)
+        return EquipmentViewModelFactory(getFiltersUseCase, getHeatersUseCase, getUnitSettingsUseCase)
     }
 
     @Singleton
     @Provides
     fun provideUnitSettingsViewModelFactory(
-        app: Application,
         getUnitSettingsUseCase: GetUnitSettingsUseCase,
         saveUnitSettingsUseCase: SaveUnitSettingsUseCase,
     ): UnitSettingsViewModelFactory {
-        return UnitSettingsViewModelFactory(app, getUnitSettingsUseCase, saveUnitSettingsUseCase)
+        return UnitSettingsViewModelFactory(getUnitSettingsUseCase, saveUnitSettingsUseCase)
     }
 
 }
