@@ -8,6 +8,8 @@ import com.google.common.truth.Truth
 import com.google.common.truth.Truth.assertThat
 import com.loftydev.aquariumcalculator.data.model.UnitSystem
 import com.loftydev.aquariumcalculator.data.model.UnitSystemType
+import kotlinx.coroutines.flow.last
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -43,7 +45,7 @@ class UnitSettingsDaoTest {
         val unitSetting = unitSetting(UnitSystemType.IMPERIAL, UnitSystemType.METRIC, UnitSystemType.METRIC)
         dao.insert(unitSetting)
 
-        val savedSetting = dao.getUnitSetting()
+        val savedSetting = dao.getUnitSetting().map { it.last() }.last()
         assertThat(unitSetting).isEqualTo(savedSetting)
     }
 
