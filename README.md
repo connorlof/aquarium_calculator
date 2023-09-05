@@ -4,7 +4,7 @@ Aquarium Calculator is an mobile application for Android that provides utility t
 
 ## Motivation
 
-This project was created as a refresher to Native Android development with the goal of applying best practices and up to date libraries. For example this application was developed using the architecture pattern known as MVVM Clean Architecture. Other notable technologies used were Hilt (dependency injection), Retrofit (network layer), Kotlin Coroutines + Flow (reactive programming), Room database (local storage), and JUnit 4 / MockK (unit tests).
+This project was created as a refresher to Native Android development with the goal of applying best practices and up to date libraries. For example this application was developed using the architecture pattern known as MVVM Clean Architecture. Other notable technologies used were Hilt (dependency injection), Retrofit (network layer), Kotlin Coroutines + Flow (reactive programming), Room database (local storage), and JUnit 4 / Truth / Mockito (unit tests).
 
 ## Features
 
