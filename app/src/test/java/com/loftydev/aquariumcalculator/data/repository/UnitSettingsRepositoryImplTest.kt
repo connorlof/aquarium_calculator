@@ -17,7 +17,7 @@ class UnitSettingsRepositoryImplTest {
 
     private lateinit var repository: UnitSettingsRepositoryImpl
 
-    private val unitSettingsLocalDataSource: UnitSettingsLocalDataSource = Mockito.mock(UnitSettingsLocalDataSource::class.java)
+    private val unitSettingsLocalDataSource = Mockito.mock(UnitSettingsLocalDataSource::class.java)
 
     @Before
     fun setup() {
