@@ -13,11 +13,15 @@ class GetUnitSettingsUseCase(private val unitSettingsRepository: UnitSettingsRep
             .getUnitSetting()
             .map {
                 if (it.isEmpty()) {
-                    UnitSystem(0, UnitSystemType.IMPERIAL, UnitSystemType.IMPERIAL, UnitSystemType.IMPERIAL)
+                    DEFAULT_UNIT_SETTING
                 } else {
                     it.last()
                 }
             }
-            .onEmpty { UnitSystem(0, UnitSystemType.IMPERIAL, UnitSystemType.IMPERIAL, UnitSystemType.IMPERIAL) }
+            .onEmpty { DEFAULT_UNIT_SETTING }
+    }
+
+    companion object {
+        val DEFAULT_UNIT_SETTING = UnitSystem(0, UnitSystemType.IMPERIAL, UnitSystemType.IMPERIAL, UnitSystemType.IMPERIAL)
     }
 }

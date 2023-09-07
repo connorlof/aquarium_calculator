@@ -12,6 +12,11 @@ This project was created as a refresher to Native Android development with the g
 * Unit conversions for common aquarium units of measurement (Temperature, Volume, Distance, Hardness)
 * Equipment Recommendations (Filters, Heaters)
 
+![Screenshot](screenshot1.png)
+![Screenshot](screenshot2.png)
+![Screenshot](screenshot3.png)
+![Screenshot](screenshot4.png)
+
 ## Installation
 
 Aquarium Calculator is not currently available as a release version. The application can be accessed by cloning this repository and building the debug version within Android Studio.
