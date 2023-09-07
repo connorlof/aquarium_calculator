@@ -12,10 +12,10 @@ This project was created as a refresher to Native Android development with the g
 * Unit conversions for common aquarium units of measurement (Temperature, Volume, Distance, Hardness)
 * Equipment Recommendations (Filters, Heaters)
 
-![Screenshot](screenshot1.png)
-![Screenshot](screenshot2.png)
-![Screenshot](screenshot3.png)
-![Screenshot](screenshot4.png)
+<img src="https://github.com/connorlof/aquarium_calculator/assets/14317057/b5206730-006c-4811-a70f-03b38f8cb940" width="180" height="388" />
+<img src="https://github.com/connorlof/aquarium_calculator/assets/14317057/4711c3bb-1cc6-42da-bbe4-789f355a6be8" width="180" height="388" />
+<img src="https://github.com/connorlof/aquarium_calculator/assets/14317057/75b255f4-98d5-4cfb-a964-ef98f916ada1" width="180" height="388" />
+<img src="https://github.com/connorlof/aquarium_calculator/assets/14317057/2715ff34-750f-407f-a794-70626fed4c53" width="180" height="388" />
 
 ## Installation
 
