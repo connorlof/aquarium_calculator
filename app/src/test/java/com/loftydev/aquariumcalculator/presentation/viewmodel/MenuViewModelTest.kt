@@ -9,21 +9,26 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 
 class MenuViewModelTest {
 
-    private lateinit var viewModel: MenuViewModel
+    private val viewModel = MenuViewModel()
 
     @JvmField
     @Rule
     val rule: TestRule = InstantTaskExecutorRule()
 
-    @Before
-    fun setUp() {
-        viewModel = MenuViewModel()
+    @Test
+    fun select_itemSetAsLastSelected() {
+        viewModel.select("myItem1")
+        assertThat(viewModel.lastSelectedItem.value).isEqualTo("myItem1")
+
+        viewModel.select("myItem2")
+        assertThat(viewModel.lastSelectedItem.value).isEqualTo("myItem2")
+
+        viewModel.select("myItem1")
+        assertThat(viewModel.lastSelectedItem.value).isEqualTo("myItem1")
     }
 
     @Test
-    fun selectEmitsExpectedValue() {
-        viewModel.select("myItem")
-        assertThat(viewModel.lastSelectedItem.value).isEqualTo("myItem")
+    fun lastSelectedItem_neverSelected_lastSelectedIsNull() {
+        assertThat(viewModel.lastSelectedItem.value).isNull()
     }
-
 }
