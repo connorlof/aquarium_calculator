@@ -18,8 +18,8 @@ class EquipmentViewModel(
     private val getUnitSettingsUseCase: GetUnitSettingsUseCase,
 ) : ViewModel() {
 
-    val filters: MutableLiveData<Resource<EquipmentResponse>> = MutableLiveData()
-    val heaters: MutableLiveData<Resource<EquipmentResponse>> = MutableLiveData()
+    val filters: MutableLiveData<Resource<EquipmentResponse>> = MutableLiveData(Resource.Loading())
+    val heaters: MutableLiveData<Resource<EquipmentResponse>> = MutableLiveData(Resource.Loading())
     val volumeUnit: MutableLiveData<UnitSystemType> = MutableLiveData()
 
     fun reset() = viewModelScope.launch(Dispatchers.IO) {
