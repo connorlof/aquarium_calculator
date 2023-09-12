@@ -9,6 +9,7 @@ class ConversionTypeTest {
     @Test
     fun correctValue_calculate_FAHRENHEIT_TO_CELSIUS() {
         assertThat(FAHRENHEIT_TO_CELSIUS.calculate(32.0)).isEqualTo(0.0)
+        assertThat(FAHRENHEIT_TO_CELSIUS.calculate(-32.0)).isEqualTo(-35.55555555555556)
         assertThat(FAHRENHEIT_TO_CELSIUS.calculate(0.0)).isEqualTo(-17.77777777777778)
         assertThat(FAHRENHEIT_TO_CELSIUS.calculate(80.0)).isEqualTo(26.666666666666668)
     }
