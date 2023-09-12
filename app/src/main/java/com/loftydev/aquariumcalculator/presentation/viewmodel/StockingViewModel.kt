@@ -16,9 +16,9 @@ class StockingViewModel(
     private val getUnitSettingsUseCase: GetUnitSettingsUseCase,
 ) : ViewModel() {
 
-    val stockingPercent: MutableLiveData<Double> = MutableLiveData()
-    val distanceUnit: MutableLiveData<UnitSystemType> = MutableLiveData()
-    val volumeUnit: MutableLiveData<UnitSystemType> = MutableLiveData()
+    val stockingPercent: MutableLiveData<Double> = MutableLiveData(0.0)
+    val distanceUnit: MutableLiveData<UnitSystemType> = MutableLiveData(UnitSystemType.IMPERIAL)
+    val volumeUnit: MutableLiveData<UnitSystemType> = MutableLiveData(UnitSystemType.IMPERIAL)
 
     fun reset() = viewModelScope.launch(Dispatchers.IO) {
         stockingPercent.postValue(0.0)
